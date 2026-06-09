@@ -18,7 +18,7 @@ jobs:
 
       - name: Run QualiBooth code analysis
         id: qualibooth
-        uses: QualiBooth/code-analysis@v1
+        uses: QualiBooth/code-analysis@995530d
         with:
           org-uuid: "${{ secrets.QUALIBOOTH_ORG_UUID }}"
           api-url: https://pipelinein.dev.qualibooth.com
