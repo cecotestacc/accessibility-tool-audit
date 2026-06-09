@@ -1,29 +1,39 @@
-name: QualiBooth Accessibility Scan
+name: QualiBooth Accessibility Code Analysis
+description: Run ESLint accessibility analysis on your codebase and report results to QualiBooth
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
+branding:
+  icon: shield
+  color: blue
 
-jobs:
-  accessibility-scan:
-    name: Accessibility Code Analysis
-    runs-on: ubuntu-latest
+inputs:
+  org-uuid:
+    description: Your QualiBooth organization UUID (find it in Settings → Organization)
+    required: true
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  project-type:
+    description: Type of project to scan — react, vue, or html
+    required: false
+    default: react
 
-      - name: Run QualiBooth code analysis
-        id: qualibooth
-        uses: QualiBooth/code-analysis@v1
-        with:
-          org-uuid: "${{ secrets.QUALIBOOTH_ORG_UUID }}"
+  scan-paths:
+    description: Comma-separated list of paths to scan (relative to repo root)
+    required: false
+    default: src/
 
-      - name: Print issues found
-        env:
-          ISSUES: "${{ steps.qualibooth.outputs.issues-found }}"
-        run: |
-          echo "Accessibility issues found: $ISSUES"
+  fail-on-issues:
+    description: Exit with code 1 if accessibility issues are found
+    required: false
+    default: "false"
+
+  api-url:
+    description: QualiBooth API base URL (override for staging or self-hosted)
+    required: false
+    default: https://pipelinein.qualibooth.com
+
+outputs:
+  issues-found:
+    description: Number of accessibility issues found in this scan
+
+runs:
+  using: node20
+  main: dist/index.js
