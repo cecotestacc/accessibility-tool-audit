@@ -22,7 +22,7 @@ jobs:
         with:
           org-uuid: "${{ secrets.QUALIBOOTH_ORG_UUID }}"
           api-url: https://pipelinein.dev.qualibooth.com
-          scan-paths: /tests
+          scan-paths: tests
           project-type: html
       - name: Print issues found
         env:
