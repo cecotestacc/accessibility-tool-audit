@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Demo</title>
+    <style>
+      body { font-family: sans-serif; margin: 40px; background: #fff; }
+      .low-contrast { color: #aaa; background: #fff; }
+      .btn { background: #e0e0e0; border: none; padding: 8px 16px; cursor: pointer; }
+      .card { border: 1px solid #ccc; padding: 16px; margin: 16px 0; }
+    </style>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function App() {
+        return (
+          <div>
+            {/* Missing h1, starts at h3 — heading hierarchy violation */}
+            <h3>Welcome to our site</h3>
+
+            {/* Image without alt attribute */}
+            <img src="https://picsum.photos/200/100" />
+
+            {/* Low contrast text */}
+            <p className="low-contrast">
+              This text has very low contrast and is hard to read.
+            </p>
+
+            {/* Input with no associated label */}
+            <div className="card">
+              <input type="text" placeholder="Enter your name" />
+              <input type="email" placeholder="Enter your email" />
+              <button className="btn">Submit</button>
+            </div>
+
+            {/* div acting as button without role or keyboard support */}
+            <div className="btn" onClick={() => alert("clicked")}>
+              Click me
+            </div>
+
+            {/* Anchor with non-descriptive text */}
+            <p>
+              To learn more <a href="https://example.com">click here</a>.
+            </p>
+
+            {/* Button with no accessible label — icon only */}
+            <button className="btn">✕</button>
+
+            {/* Empty alt on decorative-but-meaningful image */}
+            <img src="https://picsum.photos/200/50" alt="" />
+
+            <h5>Footer section</h5>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

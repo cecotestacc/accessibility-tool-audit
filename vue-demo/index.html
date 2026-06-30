@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Demo</title>
+    <style>
+      body { font-family: sans-serif; margin: 40px; background: #fff; }
+      .low-contrast { color: #bbb; background: #fff; font-size: 12px; }
+      .btn { background: #e0e0e0; border: none; padding: 8px 16px; cursor: pointer; }
+      .card { border: 1px solid #ccc; padding: 16px; margin: 16px 0; }
+      table { border-collapse: collapse; width: 100%; }
+      td { padding: 8px; border: 1px solid #ddd; }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Missing h1, jumps from h2 to h4 — heading hierarchy violation -->
+      <h2>{{ title }}</h2>
+
+      <!-- Image without alt attribute -->
+      <img src="https://picsum.photos/200/100" />
+
+      <!-- Low contrast, tiny text -->
+      <p class="low-contrast">Important notice that is very hard to see.</p>
+
+      <!-- Form inputs with no labels -->
+      <div class="card">
+        <input type="text" placeholder="Username" v-model="username" />
+        <input type="password" placeholder="Password" v-model="password" />
+        <button class="btn" @click="submit">Go</button>
+      </div>
+
+      <!-- Table with no headers -->
+      <table>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>Admin</td>
+        </tr>
+        <tr>
+          <td>Jane</td>
+          <td>Smith</td>
+          <td>User</td>
+        </tr>
+      </table>
+
+      <!-- Anchor with non-descriptive text -->
+      <p>Read more about us <a href="https://example.com">here</a>.</p>
+
+      <!-- div used as interactive control -->
+      <div class="btn" @click="submit" style="margin-top:12px;">
+        Fake Button
+      </div>
+
+      <!-- Autoplay video (no controls, no captions) -->
+      <h4>Media</h4>
+      <video src="" autoplay style="width:200px;height:100px;background:#000;"></video>
+    </div>
+
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            title: "Welcome",
+            username: "",
+            password: ""
+          };
+        },
+        methods: {
+          submit() {
+            alert(`Hello ${this.username}`);
+          }
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>
