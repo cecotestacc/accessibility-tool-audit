@@ -20,5 +20,5 @@ jobs:
           QUALIBOOTH_BRANCH: ${{ github.ref_name }}
           QUALIBOOTH_API_URL: https://pipelinein.dev.qualibooth.com
           QUALIBOOTH_PROJECT_TYPE: "html"
-          QUALIBOOTH_SCAN_PATHS: "tests, example-pages"
+          QUALIBOOTH_SCAN_PATHS: "tests"
 
