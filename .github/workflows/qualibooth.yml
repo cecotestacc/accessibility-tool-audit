@@ -17,4 +17,4 @@ jobs:
           QUALIBOOTH_SHA: ${{ github.sha }}
           QUALIBOOTH_BRANCH: ${{ github.ref_name }}
           QUALIBOOTH_API_URL: https://pipelinein.dev.qualibooth.com
-          QUALIBOOTH_PROJECT_TYPE: html
+          QUALIBOOTH_PROJECT_TYPE: "html"
