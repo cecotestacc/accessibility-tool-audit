@@ -1,4 +1,4 @@
-name: QualiBooth Code Analysis1
+name: QualiBooth Code Analysis
 on:
   push:
     branches: ["main", "develop", "gh-pages"]
