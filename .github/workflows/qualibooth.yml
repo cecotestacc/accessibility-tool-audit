@@ -1,31 +1,21 @@
-name: QualiBooth Accessibility Scan
-
+name: QualiBooth Code Analysis
 on:
   push:
-    branches: [main]
+    branches: ["main", "develop"]
   pull_request:
-    branches: [main]
-  workflow_dispatch:
-
+    branches: ["main"]
 jobs:
   accessibility-scan:
-    name: Accessibility Code Analysis
+    name: Accessibility Code Scan
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Run QualiBooth code analysis
-        id: qualibooth
-        uses: QualiBooth/code-analysis@v1
-        with:
-          org-uuid: "${{ secrets.QUALIBOOTH_ORG_UUID }}"
-          api-url: https://pipelinein.dev.qualibooth.com
-          scan-paths: tests
-          project-type: html
-      - name: Print issues found
+      - name: Run QualiBooth Code Analysis
+        uses: docker://ghcr.io/qualibooth/qualibooth-action:latest
         env:
-          ISSUES: "${{ steps.qualibooth.outputs.issues-found }}"
-        run: |
-          echo "Accessibility issues found: $ISSUES"
+          QUALIBOOTH_ORG_UUID: a0f273d0-9765-403e-98dc-7bbb59c70c60
+          QUALIBOOTH_REPO: ${{ github.repository }}
+          QUALIBOOTH_SHA: ${{ github.sha }}
+          QUALIBOOTH_BRANCH: ${{ github.ref_name }}
+          QUALIBOOTH_API_URL: https://pipelinein.dev.qualibooth.com
+          QUALIBOOTH_PROJECT_TYPE: html
+          QUALIBOOTH_SCAN_PATHS: tests
