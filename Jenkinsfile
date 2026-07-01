@@ -17,8 +17,8 @@ pipeline {
                         -e QUALIBOOTH_SHA="${env.GIT_COMMIT}" \\
                         -e QUALIBOOTH_BRANCH="${branchName}" \\
                         -e QUALIBOOTH_API_URL="${env.QUALIBOOTH_API_URL ?: 'https://pipelinein.dev.qualibooth.com'}" \\
-                        -e QUALIBOOTH_PROJECT_TYPE="${env.QUALIBOOTH_PROJECT_TYPE ?: 'vue'}" \\
-                        -e QUALIBOOTH_SCAN_PATHS="${env.QUALIBOOTH_SCAN_PATHS ?: 'vue-demo'}" \\
+                        -e QUALIBOOTH_PROJECT_TYPE="${env.QUALIBOOTH_PROJECT_TYPE ?: 'html'}" \\
+                        -e QUALIBOOTH_SCAN_PATHS="${env.QUALIBOOTH_SCAN_PATHS ?: '.'}" \\
                         ghcr.io/qualibooth/qualibooth-action:latest
                     """
                 }
