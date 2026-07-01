@@ -10,7 +10,8 @@ pipeline {
                         ?.replace('origin/', '') ?: 'main'
                     sh """
                       docker run --rm \\
-                        -v "${WORKSPACE}:/workspace" \\
+                        --volumes-from jenkins \\
+                        -e GITHUB_WORKSPACE="${WORKSPACE}" \\
                         -e QUALIBOOTH_ORG_UUID="${env.QUALIBOOTH_ORG_UUID}" \\
                         -e QUALIBOOTH_REPO="${repoName}" \\
                         -e QUALIBOOTH_SHA="${env.GIT_COMMIT}" \\
