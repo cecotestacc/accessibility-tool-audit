@@ -17,7 +17,7 @@ pipeline {
                         -e QUALIBOOTH_BRANCH="${branchName}" \\
                         -e QUALIBOOTH_API_URL="${env.QUALIBOOTH_API_URL ?: 'https://pipelinein.dev.qualibooth.com'}" \\
                         -e QUALIBOOTH_PROJECT_TYPE="${env.QUALIBOOTH_PROJECT_TYPE ?: 'react'}" \\
-                        -e QUALIBOOTH_SCAN_PATHS="${env.QUALIBOOTH_SCAN_PATHS ?: '.'}" \\
+                        -e QUALIBOOTH_SCAN_PATHS="${env.QUALIBOOTH_SCAN_PATHS ?: 'react-demo'}" \\
                         ghcr.io/qualibooth/qualibooth-action:latest
                     """
                 }
