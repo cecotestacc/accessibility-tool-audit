@@ -15,7 +15,7 @@ jobs:
         uses: docker://ghcr.io/qualibooth/qualibooth-action:latest
         env:
           QUALIBOOTH_ORG_UUID: "a0f273d0-9765-403e-98dc-7bbb59c70c60"
-          QUALIBOOTH_REPO: ${{ github.repository }}
+          QUALIBOOTH_REPO: "ata-2"
           QUALIBOOTH_SHA: ${{ github.sha }}
           QUALIBOOTH_BRANCH: ${{ github.ref_name }}
           QUALIBOOTH_SCAN_PATHS: tests
