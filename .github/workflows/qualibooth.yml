@@ -18,6 +18,6 @@ jobs:
           QUALIBOOTH_REPO: ${{ github.repository }}
           QUALIBOOTH_SHA: ${{ github.sha }}
           QUALIBOOTH_BRANCH: ${{ github.ref_name }}
-          QUALIBOOTH_SCAN_PATHS: "tests"
-          QUALIBOOTH_PROJECT_TYPE: "html"
+          QUALIBOOTH_SCAN_PATHS: tests
+          QUALIBOOTH_PROJECT_TYPE: html
 
