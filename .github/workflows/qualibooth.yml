@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Run QualiBooth Code Analysis
+      - name: Run QualiBooth Code Analysis1
         uses: docker://ghcr.io/qualibooth/qualibooth-action:latest
         env:
           QUALIBOOTH_ORG_UUID: "a0f273d0-9765-403e-98dc-7bbb59c70c60"
